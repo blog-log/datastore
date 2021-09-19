@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: database
+  name: datastore
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: database
+      app: datastore
   template:
     metadata:
       labels:
-        app: database
+        app: datastore
     spec:
       containers:
-        - image: cheapacr.azurecr.io/database:3fca3289de203a04f921991e39724af5bb41eaca
-          name: database
+        - image: cheapacr.azurecr.io/datastore:3d67cb0f612d2bb2d734988bf2fe8aaf61f78d8e
+          name: datastore
           ports:
             - containerPort: 3000
           env:
