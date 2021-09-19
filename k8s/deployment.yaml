@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - image: cheapacr.azurecr.io/database:3fca3289de203a04f921991e39724af5bb41eaca
+          name: database
+          ports:
+            - containerPort: 3000
+          env:
+            - name: "GOOGLE_APPLICATION_CREDENTIALS"
+              value: "/opt/firebase/creds.json"
+      volumeMounts:
+        - name: secret-volume # matches secret name
+          mountPath: "/opt/firebase"
+          readOnly: true # no editing!
+    volumes:
+      # create volumes
+      - name: secret-volume # name to match for mounting
+        secret:
+          secretName: firebase-secret # name of secret

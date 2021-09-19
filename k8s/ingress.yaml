@@ -1,0 +1,8 @@
+apiVersion: x.getambassador.io/v3alpha1
+kind: AmbassadorMapping
+metadata:
+  name: database
+spec:
+  hostname: "*"
+  prefix: /api/v1/database/
+  service: kustomize-database:3000
