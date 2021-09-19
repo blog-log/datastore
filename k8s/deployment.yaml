@@ -21,12 +21,12 @@ spec:
           env:
             - name: "GOOGLE_APPLICATION_CREDENTIALS"
               value: "/opt/firebase/creds.json"
-      volumeMounts:
-        - name: secret-volume # matches secret name
-          mountPath: "/opt/firebase"
-          readOnly: true # no editing!
-    volumes:
-      # create volumes
-      - name: secret-volume # name to match for mounting
-        secret:
-          secretName: firebase-secret # name of secret
+          volumeMounts:
+            - name: secret-volume # matches secret name
+              mountPath: "/opt/firebase"
+              readOnly: true # no editing!
+      volumes:
+        # create volumes
+        - name: secret-volume # name to match for mounting
+          secret:
+            secretName: firebase-secret # name of secret
