@@ -25,6 +25,11 @@ spec:
             - name: secret-volume # matches secret name
               mountPath: "/opt/firebase"
               readOnly: true # no editing!
+      tolerations:
+        - key: "kubernetes.azure.com/scalesetpriority"
+          operator: "Equal"
+          value: "spot"
+          effect: "NoSchedule"
       volumes:
         # create volumes
         - name: secret-volume # name to match for mounting
