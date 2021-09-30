@@ -20,7 +20,7 @@ spec:
             - containerPort: 3000
           env:
             - name: "GOOGLE_APPLICATION_CREDENTIALS"
-              value: "/opt/firebase/creds.json"
+              value: "/opt/firebase/firebase-sa.json"
           resources:
             requests:
               memory: "128Mi"
