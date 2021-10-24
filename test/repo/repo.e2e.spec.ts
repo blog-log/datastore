@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../../src/app.module';
-import { SearchRepoDto } from 'src/repo/dto/search-repo.dto';
+import { SearchRepoDto } from '../../src/repo/dto/search-repo.dto';
 
 describe('RepoController (e2e)', () => {
   let app: INestApplication;

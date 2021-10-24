@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { IDocumentService } from '../database/document.service';
-import { DocumentServiceFactory } from '../database/database.factory';
 import { DocumentController } from './document.controller';
 import { DocumentService } from './document.service';
 import { Document } from './entities/document.entity';
+import { DatabaseModule } from '../database/database.module';
 
 describe('DocumentController', () => {
   let controller: DocumentController;
@@ -15,10 +15,11 @@ describe('DocumentController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [DatabaseModule.register()],
       controllers: [DocumentController],
-      providers: [DocumentService, DocumentServiceFactory],
+      providers: [DocumentService],
     })
-      .overrideProvider(DocumentServiceFactory)
+      .overrideProvider(IDocumentService)
       .useValue(mockDocumentService)
       .compile();
 

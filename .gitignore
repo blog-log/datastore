@@ -44,3 +44,6 @@ lerna-debug.log*
 .env.*
 
 k8s/*secret*.yaml
+
+data/
+data/db
