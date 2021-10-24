@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { RepoService } from './repo.service';
 import { RepoController } from './repo.controller';
-import { FirestoreService } from '../firestore/firestore.service';
+import { RepoServiceFactory } from '../database/database.factory';
 
 @Module({
   controllers: [RepoController],
-  providers: [RepoService, FirestoreService],
+  providers: [RepoService, RepoServiceFactory],
 })
 export class RepoModule {}

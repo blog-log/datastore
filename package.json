@@ -22,20 +22,22 @@
   },
   "dependencies": {
     "@google-cloud/firestore": "^4.15.1",
-    "@nestjs/common": "^7.6.13",
-    "@nestjs/config": "^1.0.1",
-    "@nestjs/core": "^7.6.13",
-    "@nestjs/mapped-types": "*",
-    "@nestjs/platform-express": "^7.6.13",
+    "@nestjs/common": "^8.1.1",
+    "@nestjs/config": "^1.0.2",
+    "@nestjs/core": "^8.1.1",
+    "@nestjs/mapped-types": "^1.0.0",
+    "@nestjs/platform-express": "^8.1.1",
+    "@nestjs/typeorm": "^8.0.2",
     "firebase-admin": "^9.11.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^7.4.0",
+    "typeorm": "^0.2.38"
   },
   "devDependencies": {
-    "@nestjs/cli": "^7.5.6",
-    "@nestjs/schematics": "^7.2.7",
-    "@nestjs/testing": "^7.6.13",
+    "@nestjs/cli": "^8.1.4",
+    "@nestjs/schematics": "^8.0.4",
+    "@nestjs/testing": "^8.1.1",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
@@ -60,7 +62,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
