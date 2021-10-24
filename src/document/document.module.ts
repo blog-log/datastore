@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { DocumentService } from './document.service';
 import { DocumentController } from './document.controller';
-import { FirestoreService } from '../firestore/firestore.service';
+import { DocumentServiceFactory } from '../database/database.factory';
 
 @Module({
   controllers: [DocumentController],
-  providers: [DocumentService, FirestoreService],
+  providers: [DocumentService, DocumentServiceFactory],
 })
 export class DocumentModule {}
