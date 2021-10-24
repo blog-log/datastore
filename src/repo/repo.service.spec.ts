@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { RepoServiceFactory } from '../database/database.factory';
+import { DatabaseModule } from '../database/database.module';
 import { IRepoService } from '../database/repo.service';
 import { Repo } from './entities/repo.entity';
 import { RepoService } from './repo.service';
@@ -14,9 +14,10 @@ describe('RepoService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [RepoService, RepoServiceFactory],
+      imports: [DatabaseModule.register()],
+      providers: [RepoService],
     })
-      .overrideProvider(RepoServiceFactory)
+      .overrideProvider(IRepoService)
       .useValue(mockRepoService)
       .compile();
 

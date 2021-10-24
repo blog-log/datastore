@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { RepoService } from './repo.service';
 import { RepoController } from './repo.controller';
-import { RepoServiceFactory } from '../database/database.factory';
+import { DatabaseModule } from '../database/database.module';
 
 @Module({
+  imports: [DatabaseModule.register()],
   controllers: [RepoController],
-  providers: [RepoService, RepoServiceFactory],
+  providers: [RepoService],
 })
 export class RepoModule {}
