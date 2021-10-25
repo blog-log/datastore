@@ -59,6 +59,9 @@
     "typescript": "^4.1.5"
   },
   "jest": {
+    "setupFiles": [
+      "reflect-metadata"
+    ],
     "moduleFileExtensions": [
       "js",
       "json",
