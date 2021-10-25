@@ -13,6 +13,10 @@ describe('DocumentService', () => {
   };
 
   beforeEach(async () => {
+    process.env['NODE_ENV'] = 'test';
+    process.env['DATABASE_TYPE'] = 'firebase';
+    process.env['DATABASE_URI'] = 'fake-db-uri';
+
     const module: TestingModule = await Test.createTestingModule({
       imports: [DatabaseModule.register()],
       providers: [DocumentService],
