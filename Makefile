@@ -8,8 +8,7 @@ compose-run:
 	docker-compose up
 
 generate-secret-dev:
-	kubectl create secret generic firebase-secret --dry-run=client --from-file=/mnt/c/workspace/keys/dev/firebase-sa.json -o yaml > k8s/secret-dev.yaml
+	kubectl create secret generic datastore-secret --dry-run=client --from-env-file=.env.dev -o yaml > k8s/secret-dev.yaml
 
 generate-secret-prod:
-	kubectl create secret generic firebase-secret --dry-run=client --from-file=/mnt/c/workspace/keys/prod/firebase-sa.json -o yaml > k8s/secret-prod.yaml
-
+	kubectl create secret generic datastore-secret --dry-run=client --from-env-file=.env.prod -o yaml > k8s/secret-prod.yaml

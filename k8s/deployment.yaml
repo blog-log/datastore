@@ -18,9 +18,9 @@ spec:
           name: datastore
           ports:
             - containerPort: 3000
-          env:
-            - name: "GOOGLE_APPLICATION_CREDENTIALS"
-              value: "/opt/firebase/firebase-sa.json"
+          envFrom:
+            - secretRef:
+                name: datastore-secret
           resources:
             requests:
               memory: "128Mi"
@@ -28,17 +28,8 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
-          volumeMounts:
-            - name: secret-volume # matches secret name
-              mountPath: "/opt/firebase"
-              readOnly: true # no editing!
       tolerations:
         - key: "kubernetes.azure.com/scalesetpriority"
           operator: "Equal"
           value: "spot"
           effect: "NoSchedule"
-      volumes:
-        # create volumes
-        - name: secret-volume # name to match for mounting
-          secret:
-            secretName: firebase-secret # name of secret
